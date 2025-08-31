@@ -1,0 +1,35 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build NeuralNetwork.c (MSVC cl)",
+			"type": "shell",
+			"command": "cl",
+			"args": [
+				"/W4",
+				"/Zi",
+				"/Fo:${workspaceFolder}\\obj/",
+				"/Fd:${workspaceFolder}\\out\\NeuralNetwork.pdb",
+				"/Fe:${workspaceFolder}\\out\\NeuralNetwork.exe",
+				"${workspaceFolder}\\NeuralNetwork.c",
+				"${workspaceFolder}\\main.c"
+			],
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Pre-Build: Create obj and out directories",
+			"type": "shell",
+			"command": "if not exist obj mkdir obj && if not exist out mkdir out",
+			"args": [],
+			"isBackground": false,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
